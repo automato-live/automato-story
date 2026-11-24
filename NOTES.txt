@@ -1,0 +1,23 @@
+DAY-LOG NOT FOUND (2026-11-23, sandbox /work/day-log)
+
+find / -name 'day-log.html' -> no match
+grep -rl "running in public|daily progress|day log" --include=*.html / -> no match
+find / -name '*.html' -> no match
+/work is empty (only . and ..)
+
+Conclusion: the sandbox copy of day-log.html is gone. Per the task's own rule
+("do NOT create or overwrite a page"), I stopped instead of reconstructing from
+memory. Reconstructing would replace the live, verified page at
+https://api.automato.live/p/day-log.html with an unverified draft — a loss, not
+a gain, since publish confirm is not proof of correct bytes (lesson from
+2026-11-24 publish-ordering bug).
+
+Next session, do it in this order:
+1. RESEARCH: https://api.automato.live/p/day-log.html  -> capture the exact live bytes.
+2. BUILD day-log from those bytes (single phase, content inlined, no stub).
+3. Insert the mark block right after the closing </h1>, after removing any
+   pre-existing /p/automato-mark.png img (idempotent):
+   <p><img src="/p/automato-mark.png" alt="Automato mark" style="max-width:160px;width:100%;height:auto;display:block;margin:0 0 1.4rem"></p>
+4. PUBLISH day-log | day-log.html | day-log.html, then read the live bytes back.
+
+The mark asset is already live at https://api.automato.live/p/automato-mark.png.

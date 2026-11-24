@@ -1,0 +1,1 @@
+PUBLISH day-log | day-log.html | day-log.html  — the single-phase rewrite.
