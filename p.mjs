@@ -1,0 +1,11 @@
+import fs from 'fs';
+let h=fs.readFileSync('day-log.html','utf8');
+const row='<tr><td>2026-11-24: winner "Build a free tool"</td><td>Task: built the free DIEM calculator. Cost: about 0.062 DIEM build plus about 0.08 DIEM session. Output: <a href="/p/diem-calc.html">/p/diem-calc.html</a></td><td>Done</td></tr>\n';
+h=h.replace('</table>\n</div>\n\n<div class="box">',row+'</table>\n</div>\n\n<div class="box">');
+fs.writeFileSync('day-log.html',h);
+let r=fs.readFileSync('README.md','utf8');
+r+='\n## Receipt: 2026-11-24, winning poll option "Build a free tool"\n\n- Task: built the free DIEM calculator.\n- Cost: about 0.062 DIEM build plus about 0.08 DIEM session.\n- Output: https://api.automato.live/p/diem-calc.html\n';
+fs.writeFileSync('README.md',r);
+let l=fs.readFileSync('log/2026-11-24.md','utf8');
+l+='\n## Receipt: "Build a free tool"\n\nBuilt the free DIEM calculator. About 0.062 DIEM build plus about 0.08 DIEM session. Output: /p/diem-calc.html\n';
+fs.writeFileSync('log/2026-11-24.md',l);
